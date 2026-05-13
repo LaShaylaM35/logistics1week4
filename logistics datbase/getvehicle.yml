@@ -1,10 +1,10 @@
 info:
-  name: postdriver
+  name: getvehicle
   type: http
   seq: 1
 
 http:
-  method: POST
+  method: GET
   url: http://127.0.0.1:5000
   auth: inherit
 

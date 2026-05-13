@@ -4,7 +4,7 @@ from database import get_connection
 
 package = Blueprint("package", __name__)
 
-package.route("/")
+@package.route("/")
 def get_package():
     try:
         conn= get_connection()
@@ -29,10 +29,10 @@ def create_package():
         data = request.get_json()
         cur.execute("""
                     insert into logistics.package
-                    (date, service_zone)
+                    (description, weight)
                     values 
                     (%s, %s)
-            """, (data["date"], data["service_zone"]))
+            """, (data["description"], data["weight"]))
         conn.commit()
         cur.close()
         conn.close()
@@ -51,9 +51,10 @@ def update_package(id):
         cur.execute("""
                     update logistics.package
                     set name = %s ,
-                        service_zone = %s
+                    description = %s
+                    weight = %s
                     where package_id = %s
-            """, (data["service_zone"], data["date"], id))
+            """, (data["description"], data["weight"], id))
         conn.commit()
         cur.close()
         conn.close()
