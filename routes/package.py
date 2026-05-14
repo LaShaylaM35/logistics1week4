@@ -55,7 +55,7 @@ def update_package(id):
                         route_id = %s,
                         driver_id = %s
                     where package_id = %s
-            """, (data["description"], data["weight"], data["driver_id"], data["route_id"], id))
+            """, (data["description"], data["weight"], data["route_id"], data["driver_id"], id))
         conn.commit()
         cur.close()
         conn.close()

@@ -54,7 +54,7 @@ def update_route(id):
                         driver_id = %s,
                         service_zone = %s
                     where route_id = %s
-            """, (data["service_zone"], data["driver_id"], data["order_date"], id))
+            """, (data["order_date"], data["driver_id"], data["service_zone"], id))
         conn.commit()
         cur.close()
         conn.close()

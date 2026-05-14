@@ -255,9 +255,16 @@ Updates an existing vehicle by ID.
 ```json
 {
   "model": "Mercedes Sprinter",
-  "license_plate": "XYZ-5678"
+  "license_plate": "XYZ-5678",
+  "driver_id": 1
 }
 ```
+
+| Field           | Type    | Required | Description                        |
+|-----------------|---------|----------|------------------------------------|
+| `model`         | string  | Yes      | Vehicle model name                 |
+| `license_plate` | string  | Yes      | Vehicle license plate number       |
+| `driver_id`     | integer | Yes      | ID of the assigned driver          |
 
 **Response `201`**
 ```json
@@ -349,9 +356,16 @@ Updates an existing route by ID.
 ```json
 {
   "service_zone": "Zone B",
-  "order_date": "2026-05-13T09:00:00"
+  "order_date": "2026-05-13T09:00:00",
+  "driver_id": 1
 }
 ```
+
+| Field          | Type      | Required | Description                              |
+|----------------|-----------|----------|------------------------------------------|
+| `service_zone` | string    | Yes      | The zone or area the route covers        |
+| `order_date`   | timestamp | Yes      | Date and time of the route (ISO 8601)    |
+| `driver_id`    | integer   | Yes      | ID of the assigned driver                |
 
 **Response `201`**
 ```json
@@ -444,9 +458,18 @@ Updates an existing package by ID.
 ```json
 {
   "description": "Heavy machinery parts",
-  "weight": 15.0
+  "weight": 15.0,
+  "route_id": 2,
+  "driver_id": 1
 }
 ```
+
+| Field         | Type    | Required | Description                        |
+|---------------|---------|----------|------------------------------------|
+| `description` | string  | Yes      | Description of the package content |
+| `weight`      | numeric | Yes      | Weight of the package (in kg)      |
+| `route_id`    | integer | Yes      | ID of the assigned route           |
+| `driver_id`   | integer | Yes      | ID of the assigned driver          |
 
 **Response `201`**
 ```json
