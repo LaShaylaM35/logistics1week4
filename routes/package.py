@@ -51,10 +51,12 @@ def update_package(id):
         cur.execute("""
                     update logistics.package
                     set name = %s ,
-                    description = %s
-                    weight = %s
+                    description = %s,
+                    weight = %s,
+                    route_id = %s,
+                    driver_id = %s
                     where package_id = %s
-            """, (data["description"], data["weight"], id))
+            """, (data["description"], data["weight"], data["driver_id"], data["route_id"], id))
         conn.commit()
         cur.close()
         conn.close()

@@ -50,10 +50,11 @@ def update_route(id):
         print(data)
         cur.execute("""
                     update logistics.route
-                    set name = %s ,
+                    set order_date = %s ,
+                        driver_id = %s,
                         service_zone = %s
                     where route_id = %s
-            """, (data["service_zone"], data["order_date"], id))
+            """, (data["service_zone"], data["driver_id"], data["order_date"], id))
         conn.commit()
         cur.close()
         conn.close()

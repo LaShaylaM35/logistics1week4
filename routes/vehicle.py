@@ -50,10 +50,11 @@ def update_driver(id):
         print(data)
         cur.execute("""
                     update logistics.vehicle
-                    set name = %s ,
-                        license_plate = %s
+                    set model = %s ,
+                        license_plate = %s,
+                        driver_id = %s
                     where vehicle_id = %s
-            """, (data["model"], data["license_plate"], id))
+            """, (data["model"], data["license_plate"], data["driver_id"], id))
         conn.commit()
         cur.close()
         conn.close()
