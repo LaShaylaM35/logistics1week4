@@ -41,7 +41,7 @@ def init_db():
                 (
                     route_id serial primary key,
                     service_zone varchar,
-                    order_date TIMESTAMP,
+                    order_date timestamp default current_timestamp,
                     driver_id int references driver(driver_id)
 
                 );
