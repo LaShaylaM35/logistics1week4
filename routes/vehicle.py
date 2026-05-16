@@ -29,10 +29,10 @@ def create_vehicle():
         data = request.get_json()
         cur.execute("""
                     insert into logistics.vehicle
-                    (model, license_plate)
+                    (model, license_plate, driver_id)
                     values 
-                    (%s, %s)
-            """, (data["model"], data["license_plate"]))
+                    (%s, %s, %s)
+            """, (data["model"], data["license_plate"], data["driver_id"]))
         conn.commit()
         cur.close()
         conn.close()

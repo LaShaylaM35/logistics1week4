@@ -29,10 +29,10 @@ def create_route():
         data = request.get_json()
         cur.execute("""
                     insert into logistics.route
-                    (order_date, service_zone)
+                    (order_date, service_zone, driver_id)
                     values 
-                    (%s, %s)
-            """, (data["order_date"], data["service_zone"]))
+                    (%s, %s, %s)
+            """, (data["order_date"], data["service_zone"], data["driver_id"]))
         conn.commit()
         cur.close()
         conn.close()

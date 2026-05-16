@@ -29,10 +29,10 @@ def create_package():
         data = request.get_json()
         cur.execute("""
                     insert into logistics.package
-                    (description, weight)
+                    (description, weight, route_id, driver_id)
                     values 
-                    (%s, %s)
-            """, (data["description"], data["weight"]))
+                    (%s, %s, %s, %s)
+            """, (data["description"], data["weight"], data["route_id"], data["driver_id"] ))
         conn.commit()
         cur.close()
         conn.close()
